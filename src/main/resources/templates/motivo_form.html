@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+<meta charset="UTF-8">
+<div th:replace="/layout :: header"></div>
+<title>Principal</title>
+</head>
+
+<body>
+	<div     id="contenedor">
+		<div id="cabecera" th:include="/layout :: cabecera"></div>
+
+		<div id="filainfo" th:include="/layout :: filainfo-motivocrear"></div>
+		
+		<div id="mensajes" th:include="/layout :: mensajes"></div>
+		
+		<div class="fila">
+			<div class="menu" th:include="/layout :: menu"></div>
+
+			<div class="main">
+			 
+				<form th:action="@{/motivo/crear}" action="/motivo/crear" method="POST" th:object="${motivo}" class="form">
+					<div class="container">
+						<div class="row">
+							<div class="col-3">
+								<label for="txtId">Id: </label>
+							</div>
+							<div class="col-7">
+								<input type="number" id="txtId" name="idMotivo" th:field="*{idMotivo}" class="form-control" th:readonly="true">
+							</div>
+						</div>
+
+						<div class="row">
+							<div class="col-3">
+								<label for="txtdescripcion">Nombre Motivo: </label>
+							</div>
+							<div class="col-7">
+								<input type="text" id="txtdescripcion" name="descripcion" th:field="*{descripcion}" class="form-control">
+							</div>
+						</div>
+
+						<div class="row">
+							<div class="col-3">
+								<label for="txttipoMotivo">Tipo motivo: </label>
+							</div>
+
+							<div class="col-7">
+								<input type="text" id="txttipoMotivo" name="tipoMotivo" th:field="*{tipoMotivo}" class="form-control">
+							</div>
+						</div>
+
+
+
+						<div class="row">
+							<div class="col-3">
+								<input type="submit" value="Guardar" class="btn btn-success btn-block">
+							</div>
+						</div>
+					</div>
+				</form>
+			</div>
+		</div>
+		<div id="pie">© copyright Universidad Cientifica del Sur</div>
+	</div>
+</body>
+</html>
